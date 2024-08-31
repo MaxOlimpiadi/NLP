@@ -215,7 +215,7 @@ def do_EM_alg(lem_chapter, vocab_dict, N):
     return numpy.array(final_dist)
 
 
-
+NN = 200 #number of iterations
 f = open('chapter.htm', 'r', encoding='UTF-8')
 chapter = f.read()
     
@@ -226,7 +226,7 @@ f.close()
 lem_chapter = preprocessing(chapter)
 lem_full_text = preprocessing(full_text)
 vocab_dict = get_full_vocab(lem_full_text)
-final_topic_dist = do_EM_alg(lem_chapter, vocab_dict, 200)
+final_topic_dist = do_EM_alg(lem_chapter, vocab_dict, NN)
 
 f = open('topics.txt', 'w', encoding='UTF-8')
 for i in range(0, len(final_topic_dist)):
